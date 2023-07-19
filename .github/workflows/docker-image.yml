@@ -21,4 +21,3 @@ jobs:
           context: DockerFileFolder/
           push: true
           tags: teste2023/teste:latest
-  
