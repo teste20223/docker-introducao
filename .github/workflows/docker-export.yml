@@ -1,8 +1,9 @@
 name: Exportar imagem para o DockerHub
 on:
   push:
-    branches:
-      - main  # Substitua pelo nome da sua branch principal
+    branches: [master]
+  pull_request: 
+    branches: [master]
 
 jobs:
   build:
