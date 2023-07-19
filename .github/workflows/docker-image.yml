@@ -1,0 +1,25 @@
+name: Export to DockerHub
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Build and Export
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Login to DockerHub
+        run: docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_TOKEN }}
+
+      - name: Build and Tag Docker image
+        run: |
+          docker build -t testen .
+          docker tag testen ${{ secrets.DOCKER_USER }}/teste:latest
+
+      - name: Push Docker image to DockerHub
+        run: docker push ${{ secrets.DOCKER_USER }}/teste:latest
