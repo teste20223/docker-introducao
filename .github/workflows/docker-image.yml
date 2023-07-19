@@ -24,7 +24,7 @@ jobs:
       run: docker build . --file Dockerfile --tag chamodshehanka/node-test:$(date +%s)
         
     - name: Docker Push
-      run: docker push ${{secrets.DOCKER_USER}}$teste
+      run: docker push ${{secrets.DOCKER_USER}}$//teste
         
     
   
