@@ -22,4 +22,4 @@ jobs:
           docker tag your-image-name ${{ secrets.DOCKER_USER }}/your-repo-name:latest
 
       - name: Push Docker image to DockerHub
-        run: docker push ${{ secrets.DOCKER_USER }}/your-repo-name:latest
+        run: docker push ${{ secrets.DOCKER_USER }}/teste:latest
