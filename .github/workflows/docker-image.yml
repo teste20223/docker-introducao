@@ -14,12 +14,12 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Login to DockerHub
-        run: docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_TOKEN }}
+        run: echo ${{ secrets.DOCKER_TOKEN }} | docker login -u ${{ secrets.DOCKER_USER }} --password-stdin
 
       - name: Build and Tag Docker image
         run: |
-          docker build -t testen .
-          docker tag testen ${{ secrets.DOCKER_USER }}/teste:latest
+          docker build -t your-image-name .
+          docker tag your-image-name ${{ secrets.DOCKER_USER }}/your-repo-name:latest
 
       - name: Push Docker image to DockerHub
-        run: docker push ${{ secrets.DOCKER_USER }}/teste:latest
+        run: docker push ${{ secrets.DOCKER_USER }}/your-repo-name:latest
