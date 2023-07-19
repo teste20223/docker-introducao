@@ -19,7 +19,7 @@ jobs:
       - name: Build and Tag Docker image
         run: |
           docker build -t testen .
-          docker tag testen ${{ secrets.DOCKER_USER }}/your-repo-name:latest
+          docker tag testen ${{ secrets.DOCKER_USER }}/teste:latest
 
       - name: Push Docker image to DockerHub
         run: docker push ${{ secrets.DOCKER_USER }}/teste:latest
